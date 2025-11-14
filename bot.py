@@ -5,6 +5,7 @@ import base64
 from datetime import datetime
 import pytz
 import logging
+import os
 # -----------------------------------------
 # CONFIGURAÇÕES (use variáveis de ambiente no Railway)
 # -----------------------------------------
@@ -12,6 +13,15 @@ LOGIN = ""       # seu RA / email
 SENHA = ""
 TELEGRAM_TOKEN = ""
 CHAT_ID = ""
+
+TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
+
+def avisar(msg):
+    requests.get(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+                 params={"chat_id": CHAT_ID, "text": msg})
+
+avisar("🤖 Bot iniciado no Railway!")
 
 URL_LOGIN = "https://aluno.ceub.br/Conta/LogOn"
 URL_QR = "https://ea.uniceub.br/Home/GetQrCode"
@@ -164,5 +174,6 @@ try:
 except Exception as e:
     log.error(f"Erro fatal: {e}", exc_info=True)
     time.sleep(5)
+
 
 

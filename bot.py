@@ -17,6 +17,10 @@ CHAT_ID = ""
 TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 
+requests.get(
+    f"https://api.telegram.org/bot{TOKEN}/sendMessage",
+    params={"chat_id": CHAT_ID, "text": "🤖 Bot iniciou no Railway!"}
+)
 def avisar(msg):
     requests.get(f"https://api.telegram.org/bot{TOKEN}/sendMessage",
                  params={"chat_id": CHAT_ID, "text": msg})
@@ -174,6 +178,7 @@ try:
 except Exception as e:
     log.error(f"Erro fatal: {e}", exc_info=True)
     time.sleep(5)
+
 
 
 

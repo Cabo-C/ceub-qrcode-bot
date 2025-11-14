@@ -1,8 +1,4 @@
-selenium
-schedule
 requests
-pillow
-python-dotenv
+schedule
 pytz
-webdriver-manager
-
+beautifulsoup4

@@ -17,6 +17,10 @@ CHAT_ID = ""
 TOKEN = os.getenv("BOT_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+
 requests.get(
     f"https://api.telegram.org/bot{TOKEN}/sendMessage",
     params={"chat_id": CHAT_ID, "text": "🤖 Bot iniciou no Railway!"}
@@ -50,9 +54,6 @@ def tarefa():
 
 schedule.every().day.at("08:30").do(tarefa)
 
-while True:
-    schedule.run_pending()
-    time.sleep(1)
 
 # -----------------------------------------
 # LOGIN
@@ -178,6 +179,7 @@ try:
 except Exception as e:
     log.error(f"Erro fatal: {e}", exc_info=True)
     time.sleep(5)
+
 
 
 

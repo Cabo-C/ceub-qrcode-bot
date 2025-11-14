@@ -1,3 +1,7 @@
+selenium
 schedule
 requests
-webdriver-manager
+pillow
+python-dotenv
+pytz
+

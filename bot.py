@@ -2,7 +2,8 @@ import requests
 import schedule
 import time
 import base64
-
+from datetime import datetime
+import pytz
 # -----------------------------------------
 # CONFIGURAÇÕES (use variáveis de ambiente no Railway)
 # -----------------------------------------
@@ -16,6 +17,19 @@ URL_QR = "https://ea.uniceub.br/Home/GetQrCode"
 
 session = requests.Session()
 
+TZ = pytz.timezone("America/Sao_Paulo")
+
+def agora():
+    return datetime.now(TZ).strftime("%H:%M:%S")
+
+def tarefa():
+    print(f"[{agora()}] Executando tarefa...")
+
+schedule.every().day.at("08:30").do(tarefa)
+
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 
 # -----------------------------------------
 # LOGIN
@@ -133,3 +147,4 @@ print("🟣 Bot rodando no Railway...")
 while True:
     schedule.run_pending()
     time.sleep(1)
+

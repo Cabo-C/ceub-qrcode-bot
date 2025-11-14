@@ -4,6 +4,7 @@ import time
 import base64
 from datetime import datetime
 import pytz
+import logging
 # -----------------------------------------
 # CONFIGURAÇÕES (use variáveis de ambiente no Railway)
 # -----------------------------------------
@@ -16,6 +17,14 @@ URL_LOGIN = "https://aluno.ceub.br/Conta/LogOn"
 URL_QR = "https://ea.uniceub.br/Home/GetQrCode"
 
 session = requests.Session()
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="👉 %(asctime)s | %(message)s",
+    datefmt="%H:%M:%S"
+)
+
+log = logging.getLogger("bot")
 
 TZ = pytz.timezone("America/Sao_Paulo")
 
@@ -147,4 +156,13 @@ print("🟣 Bot rodando no Railway...")
 while True:
     schedule.run_pending()
     time.sleep(1)
+
+try:
+    # seu código principal
+    executar_bot()
+
+except Exception as e:
+    log.error(f"Erro fatal: {e}", exc_info=True)
+    time.sleep(5)
+
 

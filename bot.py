@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 
 # -----------------------------------------
 # VARIÁVEIS DE AMBIENTE
-# -----------------------------------------
+# ----------------------------------------
 LOGIN = os.getenv("LOGIN")
 SENHA = os.getenv("SENHA")
 TOKEN = os.getenv("BOT_TOKEN")
@@ -138,3 +138,4 @@ log.info("🟣 Bot rodando no Railway...")
 while True:
     schedule.run_pending()
     time.sleep(1)
+

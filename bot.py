@@ -9,11 +9,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.chrome.options import Options
 
 # -----------------------------------------
-LOGIN = "22510290"
-SENHA = "Re30052007"
+LOGIN = ""
+SENHA = ""
 
-TELEGRAM_TOKEN = "8502328504:AAHXiw_GMT3KhY_W1MR19hyd7tQ6rVkf_do"
-CHAT_ID = "6545125569"
+TELEGRAM_TOKEN = ""
+CHAT_ID = ""
 
 URL_LOGIN = "https://aluno.ceub.br/Conta/LogOn"
 
@@ -56,3 +56,4 @@ driver.find_element(By.ID, "btn-login").click()
 time.sleep(4)
 
 # ----------
+
